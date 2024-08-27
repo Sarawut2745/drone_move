@@ -48,7 +48,7 @@ class DroneManager(object):
     def stop(self):
         self.stop_event.set()
         retry = 0
-        while self._response_thread.isAlive():
+        while self._response_thread.is_alive():
             time.sleep(0.3)
             if retry > 30:
                 break
