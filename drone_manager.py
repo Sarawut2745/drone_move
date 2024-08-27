@@ -7,7 +7,7 @@ import time
 logging.basicConfig(level=logging.INFO, stream=sys.stdout)
 logger = logging.getLogger(__name__)
 
-DEFAUTL_DISTANCE = 0.30
+DEFAULT_DISTANCE = 0.30
 
 class DroneManager(object):
     def __init__(self, host_ip='192.168.10.11', host_port=8889,
@@ -48,7 +48,7 @@ class DroneManager(object):
     def stop(self):
         self.stop_event.set()
         retry = 0
-        while self._response_thread.is_alive():
+        while self._response_thread.isAlive():
             time.sleep(0.3)
             if retry > 30:
                 break
